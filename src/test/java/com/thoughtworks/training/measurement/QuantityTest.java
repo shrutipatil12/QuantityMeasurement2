@@ -1,5 +1,6 @@
 package com.thoughtworks.training.measurement;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -129,7 +130,7 @@ public class QuantityTest {
         Quantity twelveInch = new Quantity(12, Unit.INCH);
         Quantity oneFoot = new Quantity(1, Unit.FOOT);
 
-        assertTrue(twelveInch.equals(oneFoot));
+        assertTrue(oneFoot.equals(twelveInch));
     }
 
     @Test
@@ -156,13 +157,6 @@ public class QuantityTest {
         assertTrue(oneYard.equals(seventyTwoInches));
     }
 
-    @Test
-    void givenZeroInchAndZeroInch_WhenAdd_ThenShouldBeFourInches() {
-        Quantity zeroInch = new Quantity(0.0, Unit.INCH);
-        Quantity anotherZeroInch = new Quantity(0.0, Unit.INCH);
-
-        assertEquals(new Quantity(0.0, Unit.INCH), zeroInch.add(anotherZeroInch));
-    }
 
     @Test
     void givenTwoInchAndZeroInch_WhenAdd_ThenShouldBeFourInches() {
@@ -181,11 +175,11 @@ public class QuantityTest {
     }
 
     @Test
-    void givenTwoInchesAndOneFoott_WhenAdd_ThenShouldBeFourInches() {
+    void givenTwoInchesAndOneFoot_WhenAdd_ThenShouldBeFourInches() {
         Quantity twoInches = new Quantity(2.0, Unit.INCH);
         Quantity oneFoot = new Quantity(1.0, Unit.FOOT);
 
-        assertEquals(new Quantity(14.0, Unit.INCH), twoInches.add(oneFoot));
+        assertEquals(new Quantity(14.0, Unit.INCH), oneFoot.add(twoInches));
     }
 
     @Test
@@ -225,7 +219,7 @@ public class QuantityTest {
     }
 
     @Test
-    void givenoneGallonAndOoneLiter_WhenAdd_ThenShouldBeReturn() {
+    void givenoneGallonAndOneLiter_WhenAdd_ThenShouldBeReturn() {
         Quantity oneGallon = new Quantity(1.0, Unit.GALLON);
         Quantity oneLiter = new Quantity(1.0, Unit.LITER);
 
@@ -258,27 +252,27 @@ public class QuantityTest {
 
 
     @Test
-    void givenOneInchAndOneLiter_WhenAdd_ThenShouldNotEqual() {
+    void givenOneInchAndOneLiter_WhenEquals_ThenShouldNotEqual() {
         Quantity oneInch = new Quantity(1.0, Unit.INCH);
         Quantity oneLiter = new Quantity(1.0, Unit.LITER);
 
         assertNotEquals(oneInch, oneLiter);
+    }@Test
+    void givenOneLiterAndOneInch_WhenEquals_ThenShouldNotEqual() {
+        Quantity oneInch = new Quantity(1.0, Unit.LITER);
+        Quantity oneLiter = new Quantity(1.0, Unit.INCH);
+
+        assertNotEquals(oneLiter, oneInch);
     }
 
-    @Test
-    void givenOneInchAndOneGallon_WhenAdd_ThenShouldNotEqual() {
-        Quantity oneInch = new Quantity(1.0, Unit.INCH);
-        Quantity oneGallon = new Quantity(1.0, Unit.GALLON);
-
-        assertNotEquals(oneInch, oneGallon);
-    }
 
     @Test
-    void givenOneFeetAndOneGallon_WhenAdd_ThenShouldNotEqual() {
+    void givenOneFeetAndOneGallon_WhenEquals_ThenShouldNotEqual() {
         Quantity oneFoot = new Quantity(1.0, Unit.FOOT);
         Quantity oneGallon = new Quantity(1.0, Unit.GALLON);
 
         assertNotEquals(oneFoot, oneGallon);
     }
+
 
 }
