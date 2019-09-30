@@ -19,7 +19,7 @@ public class Quantity {
         }
         Quantity that = (Quantity) other;
 
-        if (this.unit.baseUnit() != that.unit.baseUnit()) {
+        if (!this.unit.type.equals(that.unit.type)) {
             return false;
         }
 
