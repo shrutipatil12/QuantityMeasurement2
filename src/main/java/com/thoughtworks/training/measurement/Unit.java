@@ -1,21 +1,21 @@
 package com.thoughtworks.training.measurement;
 
 public enum Unit {
-    INCH(1, UnitType.length),
-    FOOT(12, UnitType.length),
-    YARD(36, UnitType.length),
-    LITER(1, UnitType.volume),
-    GALLON(3.78, UnitType.volume);
+    INCH(1, Measurement.length),
+    FOOT(12, Measurement.length),
+    YARD(36, Measurement.length),
+    LITER(1, Measurement.volume),
+    GALLON(3.78, Measurement.volume);
 
-    enum UnitType {
+    enum Measurement {
         length,
         volume
     }
 
     private double conversionFactor;
-    protected UnitType type;
+    protected Measurement type;
 
-    Unit(double conversionFactor, UnitType type) {
+    Unit(double conversionFactor, Measurement type) {
         this.conversionFactor = conversionFactor;
         this.type = type;
     }

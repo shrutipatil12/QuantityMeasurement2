@@ -163,7 +163,11 @@ public class QuantityTest {
         Quantity twoInch = new Quantity(2.0, Unit.INCH);
         Quantity anotherTwoInch = new Quantity(2.0, Unit.INCH);
 
-        assertEquals(new Quantity(4.0, Unit.INCH), twoInch.add(anotherTwoInch));
+        try {
+            assertEquals(new Quantity(4.0, Unit.INCH), twoInch.add(anotherTwoInch));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
@@ -171,7 +175,11 @@ public class QuantityTest {
         Quantity OneFeet = new Quantity(1.0, Unit.FOOT);
         Quantity TwoInches = new Quantity(2.0, Unit.INCH);
 
-        assertEquals(new Quantity(14.0, Unit.INCH), OneFeet.add(TwoInches));
+        try {
+            assertEquals(new Quantity(14.0, Unit.INCH), OneFeet.add(TwoInches));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
@@ -179,7 +187,11 @@ public class QuantityTest {
         Quantity twoInches = new Quantity(2.0, Unit.INCH);
         Quantity oneFoot = new Quantity(1.0, Unit.FOOT);
 
-        assertEquals(new Quantity(14.0, Unit.INCH), oneFoot.add(twoInches));
+        try {
+            assertEquals(new Quantity(14.0, Unit.INCH), oneFoot.add(twoInches));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
@@ -187,7 +199,11 @@ public class QuantityTest {
         Quantity oneFoot = new Quantity(1.0, Unit.FOOT);
         Quantity oneFoot1 = new Quantity(1.0, Unit.FOOT);
 
-        assertEquals(new Quantity(2.0, Unit.FOOT), oneFoot.add(oneFoot1));
+        try {
+            assertEquals(new Quantity(2.0, Unit.FOOT), oneFoot.add(oneFoot1));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     /*
@@ -231,7 +247,11 @@ public class QuantityTest {
         Quantity oneGallon = new Quantity(1.0, Unit.GALLON);
         Quantity anotherOneGallon = new Quantity(1.0, Unit.GALLON);
 
-        assertEquals(new Quantity(2.0, Unit.GALLON), oneGallon.add(anotherOneGallon));
+        try {
+            assertEquals(new Quantity(2.0, Unit.GALLON), oneGallon.add(anotherOneGallon));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
@@ -239,7 +259,11 @@ public class QuantityTest {
         Quantity oneLiter = new Quantity(1.0, Unit.LITER);
         Quantity anotherOneLiter = new Quantity(1.0, Unit.LITER);
 
-        assertEquals(new Quantity(2.0, Unit.LITER), oneLiter.add(anotherOneLiter));
+        try {
+            assertEquals(new Quantity(2.0, Unit.LITER), oneLiter.add(anotherOneLiter));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
@@ -247,7 +271,11 @@ public class QuantityTest {
         Quantity oneGallon = new Quantity(1.0, Unit.GALLON);
         Quantity oneLiter = new Quantity(1.0, Unit.LITER);
 
-        assertEquals(new Quantity(4.78, Unit.LITER), oneGallon.add(oneLiter));
+        try {
+            assertEquals(new Quantity(4.78, Unit.LITER), oneGallon.add(oneLiter));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 
@@ -275,5 +303,14 @@ public class QuantityTest {
         assertNotEquals(oneFoot, oneGallon);
     }
 
+    @Test
+    void givenOneFootAndOneGallon_WhenAdd_ThenShouldNotAdd() throws Exception {
+
+        assertThrows(Exception.class,()->{
+            new Quantity(1.0, Unit.FOOT).add(new Quantity(1.0, Unit.GALLON));
+
+        });
+
+    }
 
 }
