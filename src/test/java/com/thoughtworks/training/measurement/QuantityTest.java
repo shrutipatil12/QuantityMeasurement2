@@ -247,7 +247,7 @@ public class QuantityTest {
         Quantity oneGallon = new Quantity(1.0, Unit.GALLON);
         Quantity oneLiter = new Quantity(1.0, Unit.LITER);
 
-        assertEquals(new Quantity(4.779999999999999, Unit.LITER), oneGallon.add(oneLiter));
+        assertEquals(new Quantity(4.78, Unit.LITER), oneGallon.add(oneLiter));
     }
 
 
@@ -257,14 +257,15 @@ public class QuantityTest {
         Quantity oneLiter = new Quantity(1.0, Unit.LITER);
 
         assertNotEquals(oneInch, oneLiter);
-    }@Test
+    }
+
+    @Test
     void givenOneLiterAndOneInch_WhenEquals_ThenShouldNotEqual() {
         Quantity oneInch = new Quantity(1.0, Unit.LITER);
         Quantity oneLiter = new Quantity(1.0, Unit.INCH);
 
         assertNotEquals(oneLiter, oneInch);
     }
-
 
     @Test
     void givenOneFeetAndOneGallon_WhenEquals_ThenShouldNotEqual() {
