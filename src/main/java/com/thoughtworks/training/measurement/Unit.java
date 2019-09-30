@@ -2,7 +2,7 @@ package com.thoughtworks.training.measurement;
 
 public enum Unit {
 
-    INCH(1), FOOT(12),YARD(36), GALLON(3.78),LITER(1);
+    INCH(1), FOOT(12), YARD(36), GALLON(3.78), LITER(1);
 
     private double conversionFactor;
 
@@ -12,6 +12,8 @@ public enum Unit {
     }
 
     double conversionToBase(double value) {
-        return value * conversionFactor;
+     return value * conversionFactor;
+//        Quantity quantity = new Quantity(result, Unit.INCH);
+//        return quantity;
     }
 }
