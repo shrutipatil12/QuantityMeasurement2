@@ -4,6 +4,8 @@ public class Quantity {
     private final double value;
     public final Unit unit;
 
+    private final int mathRoundValue = 100;
+
     public Quantity(double value, Unit unit) {
         this.value = value;
         this.unit = unit;
@@ -23,7 +25,8 @@ public class Quantity {
             return false;
         }
 
-        return this.unit.conversionToBase(this.value) == (double) Math.round(that.unit.conversionToBase(that.value) * 100) / 100;
+        return this.unit.conversionToBase(this.value).value == (double) Math.round(that.unit.conversionToBase(that.value).value * mathRoundValue) / mathRoundValue;
+
     }
 
     private boolean isNotSameTypeOfMeasurement(Quantity that) {
@@ -31,16 +34,15 @@ public class Quantity {
     }
 
     public Quantity add(Quantity other) throws Exception {
-        String message = "Could not add two different types of measurement" ;
+        String message = "Could not add two different types of measurement";
 
-        if (isNotSameTypeOfMeasurement(other))
-        {
+        if (isNotSameTypeOfMeasurement(other)) {
             throw new Exception(message);
         }
-        if (this.unit == Unit.INCH || this.unit == Unit.FOOT) {
-            return new Quantity(this.unit.conversionToBase(this.value) + other.unit.conversionToBase(other.value), Unit.INCH);
-        }
-        return new Quantity(this.unit.conversionToBase(this.value) + other.unit.conversionToBase(other.value), Unit.LITER);
+
+        Quantity thisBase = this.unit.conversionToBase(this.value);
+        Quantity otherBase = other.unit.conversionToBase(other.value);
+        return new Quantity(thisBase.value + otherBase.value, thisBase.unit);
     }
 
     @Override
