@@ -25,8 +25,12 @@ public class Quantity {
             return false;
         }
 
-        return getBaseQuantity().value == (double) Math.round(that.getBaseQuantity().value * mathRoundValue) / mathRoundValue;
+        return getBaseQuantity().value == getThatBaseQuantity(that);
 
+    }
+
+    private double getThatBaseQuantity(Quantity that) {
+        return (double) Math.round(that.getBaseQuantity().value * mathRoundValue) / mathRoundValue;
     }
 
     private Quantity getBaseQuantity() {
