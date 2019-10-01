@@ -11,6 +11,26 @@ public class Quantity {
         this.unit = unit;
     }
 
+    static Quantity createFoot(double value) {
+        return new Quantity(value, Unit.FOOT);
+    }
+
+    static Quantity createInch(double value) {
+        return new Quantity(value, Unit.INCH);
+    }
+
+    static Quantity createYard(double value) {
+        return new Quantity(value, Unit.YARD);
+    }
+
+    static Quantity createGallon(double value) {
+        return new Quantity(value, Unit.GALLON);
+    }
+
+    static Quantity createLiter(double value) {
+        return new Quantity(value, Unit.LITER);
+    }
+
     @Override
     public boolean equals(Object other) {
         if (this == other) {
