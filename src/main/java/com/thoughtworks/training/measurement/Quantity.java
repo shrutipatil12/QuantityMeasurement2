@@ -25,8 +25,12 @@ public class Quantity {
             return false;
         }
 
-        return this.unit.conversionToBase(this.value).value == (double) Math.round(that.unit.conversionToBase(that.value).value * mathRoundValue) / mathRoundValue;
+        return getBaseQuantity().value == (double) Math.round(that.getBaseQuantity().value * mathRoundValue) / mathRoundValue;
 
+    }
+
+    private Quantity getBaseQuantity() {
+        return this.unit.conversionToBase(this.value);
     }
 
     private boolean isNotSameTypeOfMeasurement(Quantity that) {
@@ -40,8 +44,8 @@ public class Quantity {
             throw new Exception(message);
         }
 
-        Quantity thisBase = this.unit.conversionToBase(this.value);
-        Quantity otherBase = other.unit.conversionToBase(other.value);
+        Quantity thisBase = getBaseQuantity();
+        Quantity otherBase = other.getBaseQuantity();
         return new Quantity(thisBase.value + otherBase.value, thisBase.unit);
     }
 
