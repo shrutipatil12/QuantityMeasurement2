@@ -27,10 +27,14 @@ public enum Unit {
         this.type = type;
 
     }
-    Quantity conversionToBase(double value) {
 
-        return new Quantity(value * conversionFactor, baseUnit);
+    @Override
+    public String toString() {
+        return "Unit{" +
+                "conversionFactor=" + conversionFactor +
+                ", type=" + type +
+                ", baseUnit=" + baseUnit +
+                '}';
     }
-
 }
 

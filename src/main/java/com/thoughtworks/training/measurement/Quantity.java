@@ -2,33 +2,36 @@ package com.thoughtworks.training.measurement;
 
 public class Quantity {
     private final double value;
-    public final Unit unit;
+    public final IUnit iunit;
 
     private final int mathRoundValue = 100;
 
-    public Quantity(double value, Unit unit) {
+
+    public Quantity(double value, IUnit iunit) {
         this.value = value;
-        this.unit = unit;
+        this.iunit = iunit;
+
     }
 
-    static Quantity createFoot(double value) {
-        return new Quantity(value, Unit.FOOT);
+    public static Quantity createFoot(double value) {
+        return new Quantity(value, new Foot());
     }
 
     static Quantity createInch(double value) {
-        return new Quantity(value, Unit.INCH);
+        return new Quantity(value, new Inch());
     }
 
     static Quantity createYard(double value) {
-        return new Quantity(value, Unit.YARD);
+        return new Quantity(value, new Yard());
     }
 
     static Quantity createGallon(double value) {
-        return new Quantity(value, Unit.GALLON);
+
+        return new Quantity(value, new Gallon());
     }
 
     static Quantity createLiter(double value) {
-        return new Quantity(value, Unit.LITER);
+        return new Quantity(value, new Liter());
     }
 
     @Override
@@ -39,6 +42,7 @@ public class Quantity {
         if (!(other instanceof Quantity)) {
             return false;
         }
+
         Quantity that = (Quantity) other;
 
         if (isNotSameTypeOfMeasurement(that)) {
@@ -54,11 +58,11 @@ public class Quantity {
     }
 
     private Quantity getBaseQuantity() {
-        return this.unit.conversionToBase(this.value);
+        return this.iunit.conversionToBase(this.value);
     }
 
     private boolean isNotSameTypeOfMeasurement(Quantity that) {
-        return !this.unit.type.equals(that.unit.type);
+        return !this.iunit.getType().equals(that.iunit.getType());
     }
 
     public Quantity add(Quantity other) throws Exception {
@@ -70,14 +74,15 @@ public class Quantity {
 
         Quantity thisBase = getBaseQuantity();
         Quantity otherBase = other.getBaseQuantity();
-        return new Quantity(thisBase.value + otherBase.value, thisBase.unit);
+
+        return new Quantity(thisBase.value + otherBase.value, thisBase.iunit);
     }
 
     @Override
     public String toString() {
         return "Quantity{" +
                 "value=" + value +
-                ", unit=" + unit +
+                ", unit=" + iunit +
                 '}';
     }
 }

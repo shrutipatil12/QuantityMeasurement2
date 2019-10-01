@@ -110,7 +110,7 @@ public class QuantityTest {
     }
 
     @Test
-    void givenOneInchThreeFoot_WhenEquals_ThenShouldBeEqual() {
+    void givenTwelveInchOneFoot_WhenEquals_ThenShouldBeEqual() {
         Quantity twelveInch = createInch(12);
         Quantity oneFoot = createFoot(1);
 
@@ -118,7 +118,7 @@ public class QuantityTest {
     }
 
     @Test
-    void givenTwoFeetAndTwentyFourInch_WhenEquals_ThenShouldBeEqual() {
+    void givenTwentyFourInchAndtwoFeet_WhenEquals_ThenShouldBeEqual() {
         Quantity twentyFourInch = createInch(24);
         Quantity twoFeet = createFoot(2);
 
@@ -150,60 +150,49 @@ public class QuantityTest {
     }
 
     @Test
-    void givenTwoYardAndSeventyTwoInches_WhenEquals_ThenShouldBeEqual() {
+    void givenOneYardAndThreeFoot_WhenEquals_ThenShouldBeEqual() {
         Quantity oneYard = createYard(1);
-        Quantity seventyTwoInches = createFoot(3);
+        Quantity threeFoot = createFoot(3);
 
-        assertEquals(oneYard, seventyTwoInches);
+        assertEquals(oneYard, threeFoot);
     }
 
 
     @Test
-    void givenTwoInchAndZeroInch_WhenAdd_ThenShouldBeFourInches() {
+    void givenTwoInchAndZeroInch_WhenAdd_ThenShouldBeFourInches() throws Exception {
         Quantity twoInch = createInch(2.0);
         Quantity anotherTwoInch = createInch(2.0);
 
-        try {
+
             assertEquals(createInch(4.0), twoInch.add(anotherTwoInch));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+
     }
 
     @Test
-    void givenOneFeetAndTwoInches_WhenAdd_ThenShouldBeFourInches() {
+    void givenOneFeetAndTwoInches_WhenAdd_ThenShouldBeFourInches() throws Exception {
         Quantity OneFeet = createFoot(1.0);
         Quantity TwoInches = createInch(2.0);
 
-        try {
+
             assertEquals(createInch(14.0), OneFeet.add(TwoInches));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+
     }
 
     @Test
-    void givenTwoInchesAndOneFoot_WhenAdd_ThenShouldBeFourInches() {
+    void givenTwoInchesAndOneFoot_WhenAdd_ThenShouldBeFourInches() throws Exception {
         Quantity twoInches = createInch(2.0);
         Quantity oneFoot = createFoot(1.0);
 
-        try {
             assertEquals(createInch(14.0), oneFoot.add(twoInches));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+
     }
 
     @Test
-    void givenOneFootAndOneFoot_WhenAdd_ThenShouldBeReturnTwoFoot() {
+    void givenOneFootAndOneFoot_WhenAdd_ThenShouldBeReturnTwoFoot() throws Exception {
         Quantity oneFoot = createFoot(1.0);
-        Quantity oneFoot1 = createFoot(1.0);
+        Quantity anotherFoot = createFoot(1.0);
 
-        try {
-            assertEquals(createFoot(2.0), oneFoot.add(oneFoot1));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        assertEquals(createFoot(2.0), oneFoot.add(anotherFoot));
     }
 
     /*
@@ -235,7 +224,7 @@ public class QuantityTest {
     }
 
     @Test
-    void givenoneGallonAndOneLiter_WhenAdd_ThenShouldBeReturn() {
+    void givenOneGallonAndOneLiter_WhenAdd_ThenShouldBeReturn() {
         Quantity oneGallon = createGallon(1.0);
         Quantity oneLiter = createLiter(1.0);
 
@@ -243,41 +232,30 @@ public class QuantityTest {
     }
 
     @Test
-    void givenOneGallonAndAnotherOneGallon_WhenAdd_ThenShouldBeReturnOneGallon() {
+    void givenOneGallonAndAnotherOneGallon_WhenAdd_ThenShouldBeReturnOneGallon() throws Exception {
         Quantity oneGallon = createGallon(1.0);
         Quantity anotherOneGallon = createGallon(1.0);
 
-        try {
+
             assertEquals(createGallon(2.0), oneGallon.add(anotherOneGallon));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
     @Test
-    void givenOneLiterAndAnotherOneLiter_WhenAdd_ThenShouldBeReturnOneLiter() {
+    void givenOneLiterAndAnotherOneLiter_WhenAdd_ThenShouldBeReturnOneLiter() throws Exception {
         Quantity oneLiter = createLiter(1.0);
         Quantity anotherOneLiter = createLiter(1.0);
 
-        try {
             assertEquals(createLiter(2.0), oneLiter.add(anotherOneLiter));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+
     }
 
     @Test
-    void givenOneLiterAndOneGallon_WhenAdd_ThenShouldBeReturnFourPointSevenEight() {
+    void givenOneLiterAndOneGallon_WhenAdd_ThenShouldBeReturnFourPointSevenEight() throws Exception {
         Quantity oneGallon = createGallon(1.0);
         Quantity oneLiter = createLiter(1.0);
 
-        try {
             assertEquals(createLiter(4.78), oneGallon.add(oneLiter));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
-
 
     @Test
     void givenOneInchAndOneLiter_WhenEquals_ThenShouldNotEqual() {
@@ -306,12 +284,10 @@ public class QuantityTest {
     @Test
     void givenOneFootAndOneGallon_WhenAdd_ThenShouldNotAdd() throws Exception {
 
-        assertThrows(Exception.class,()->{
+        assertThrows(Exception.class, () -> {
             createFoot(1.0).add(createGallon(1.0));
 
         });
-
     }
-
 
 }
