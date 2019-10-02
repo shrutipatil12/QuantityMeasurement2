@@ -299,11 +299,17 @@ public class QuantityTest {
     }
 
     @Test
-    void givenTwoFahrenheitAndOneFahrenheit_whenCheckForEquals_ThenTheyShouldNotBeEqual() {
+    void givenTwoFahrenheitAndOneFahrenheit_WhenCheckForEquals_ThenTheyShouldNotBeEqual() {
         Quantity twoFahrenheit = createFahrenheit(2);
         Quantity oneFahrenheit = createFahrenheit(1);
 
         assertNotEquals(twoFahrenheit, oneFahrenheit);
     }
+    @Test
+    void givenZeroFahrenheitAndZeroCelsius_WhenCheckForEquals_ThenTheyShouldNotBeEqual() {
+        Quantity zeroFahrenheit = createFahrenheit(0);
+        Quantity zeroCelsius = createCelsius(0);
 
+        assertNotEquals(zeroFahrenheit, zeroCelsius);
+    }
 }
