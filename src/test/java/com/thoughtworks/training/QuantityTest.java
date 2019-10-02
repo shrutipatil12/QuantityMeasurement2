@@ -2,6 +2,8 @@ package com.thoughtworks.training;
 
 import org.junit.jupiter.api.Test;
 
+import static com.thoughtworks.training.QuantityFactory.createCelsius;
+import static com.thoughtworks.training.QuantityFactory.createFahrenheit;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class QuantityTest {
@@ -158,40 +160,40 @@ public class QuantityTest {
 
 
     @Test
-    void givenTwoInchAndZeroInch_WhenAdd_ThenShouldBeFourInches() throws Exception {
+    void givenTwoInchAndZeroInch_WhenAdd_ThenShouldBeFourInches() {
         Quantity twoInch = QuantityFactory.createInch(2.0);
         Quantity anotherTwoInch = QuantityFactory.createInch(2.0);
 
 
-        assertEquals(QuantityFactory.createInch(4.0), twoInch.add(anotherTwoInch));
+        assertEquals(QuantityFactory.createInch(4.0), ((AddableQuantity) twoInch).add(anotherTwoInch));
 
     }
 
     @Test
-    void givenOneFeetAndTwoInches_WhenAdd_ThenShouldBeFourInches() throws Exception {
+    void givenOneFeetAndTwoInches_WhenAdd_ThenShouldBeFourInches() {
         Quantity OneFeet = QuantityFactory.createFoot(1.0);
         Quantity TwoInches = QuantityFactory.createInch(2.0);
 
 
-        assertEquals(QuantityFactory.createInch(14.0), OneFeet.add(TwoInches));
+        assertEquals(QuantityFactory.createInch(14.0), ((AddableQuantity) OneFeet).add(TwoInches));
 
     }
 
     @Test
-    void givenTwoInchesAndOneFoot_WhenAdd_ThenShouldBeFourInches() throws Exception {
+    void givenTwoInchesAndOneFoot_WhenAdd_ThenShouldBeFourInches() {
         Quantity twoInches = QuantityFactory.createInch(2.0);
         Quantity oneFoot = QuantityFactory.createFoot(1.0);
 
-        assertEquals(QuantityFactory.createInch(14.0), oneFoot.add(twoInches));
+        assertEquals(QuantityFactory.createInch(14.0), ((AddableQuantity) oneFoot).add(twoInches));
 
     }
 
     @Test
-    void givenOneFootAndOneFoot_WhenAdd_ThenShouldBeReturnTwoFoot() throws Exception {
+    void givenOneFootAndOneFoot_WhenAdd_ThenShouldGiveTwoFoot() {
         Quantity oneFoot = QuantityFactory.createFoot(1.0);
         Quantity anotherFoot = QuantityFactory.createFoot(1.0);
 
-        assertEquals(QuantityFactory.createFoot(2.0), oneFoot.add(anotherFoot));
+        assertEquals(QuantityFactory.createFoot(2.0), ((AddableQuantity) oneFoot).add(anotherFoot));
     }
 
     /*
@@ -199,7 +201,7 @@ public class QuantityTest {
     1 gallon + 1Liter= 4.78 Liters
      */
     @Test
-    void givenOneGallonAndAnotherOneGallon_WhenAdd_ThenShouldBeReturn() {
+    void givenOneGallonAndAnotherOneGallon_WhenAdd_ThenShouldBeEqual() {
         Quantity oneGallon = QuantityFactory.createGallon(1.0);
         Quantity anotherOneGallon = QuantityFactory.createGallon(1.0);
 
@@ -207,7 +209,7 @@ public class QuantityTest {
     }
 
     @Test
-    void givenOneLiterAndAnotherOneLiter_WhenAdd_ThenShouldBeReturn() {
+    void givenOneLiterAndAnotherOneLiter_WhenAdd_ThenShouldBeEqual() {
         Quantity oneLiter = QuantityFactory.createLiter(1.0);
         Quantity anotherOneLiter = QuantityFactory.createLiter(1.0);
 
@@ -215,7 +217,7 @@ public class QuantityTest {
     }
 
     @Test
-    void givenOneLiterAndOneGallon_WhenAdd_ThenShouldBeReturn() {
+    void givenOneLiterAndOneGallon_WhenAdd_ThenShouldNotEqual() {
         Quantity oneLiter = QuantityFactory.createLiter(1.0);
         Quantity oneGallon = QuantityFactory.createGallon(1.0);
 
@@ -223,7 +225,7 @@ public class QuantityTest {
     }
 
     @Test
-    void givenOneGallonAndOneLiter_WhenAdd_ThenShouldBeReturn() {
+    void givenOneGallonAndOneLiter_WhenAdd_ThenShouldNotEqual() {
         Quantity oneGallon = QuantityFactory.createGallon(1.0);
         Quantity oneLiter = QuantityFactory.createLiter(1.0);
 
@@ -231,29 +233,29 @@ public class QuantityTest {
     }
 
     @Test
-    void givenOneGallonAndAnotherOneGallon_WhenAdd_ThenShouldBeReturnOneGallon() throws Exception {
+    void givenOneGallonAndAnotherOneGallon_WhenAdd_ThenShouldBeReturnOneGallon() {
         Quantity oneGallon = QuantityFactory.createGallon(1.0);
         Quantity anotherOneGallon = QuantityFactory.createGallon(1.0);
 
 
-        assertEquals(QuantityFactory.createGallon(2.0), oneGallon.add(anotherOneGallon));
+        assertEquals(QuantityFactory.createGallon(2.0), ((AddableQuantity) oneGallon).add(anotherOneGallon));
     }
 
     @Test
-    void givenOneLiterAndAnotherOneLiter_WhenAdd_ThenShouldBeReturnOneLiter() throws Exception {
+    void givenOneLiterAndAnotherOneLiter_WhenAdd_ThenShouldBeReturnOneLiter() {
         Quantity oneLiter = QuantityFactory.createLiter(1.0);
         Quantity anotherOneLiter = QuantityFactory.createLiter(1.0);
 
-        assertEquals(QuantityFactory.createLiter(2.0), oneLiter.add(anotherOneLiter));
+        assertEquals(QuantityFactory.createLiter(2.0), ((AddableQuantity) oneLiter).add(anotherOneLiter));
 
     }
 
     @Test
-    void givenOneLiterAndOneGallon_WhenAdd_ThenShouldBeReturnFourPointSevenEight() throws Exception {
+    void givenOneLiterAndOneGallon_WhenAdd_ThenShouldBeReturnFourPointSevenEight() {
         Quantity oneGallon = QuantityFactory.createGallon(1.0);
         Quantity oneLiter = QuantityFactory.createLiter(1.0);
 
-        assertEquals(QuantityFactory.createLiter(4.78), oneGallon.add(oneLiter));
+        assertEquals(QuantityFactory.createLiter(4.78), ((AddableQuantity) oneGallon).add(oneLiter));
     }
 
     @Test
@@ -281,12 +283,19 @@ public class QuantityTest {
     }
 
     @Test
-    void givenOneFootAndOneGallon_WhenAdd_ThenShouldNotAdd() throws Exception {
+    void givenOneFootAndOneGallon_WhenAdd_ThenShouldNotAdd() {
 
         assertThrows(Exception.class, () -> {
             QuantityFactory.createFoot(1.0).add(QuantityFactory.createGallon(1.0));
-
         });
+    }
+
+    @Test
+    void givenOneGallonAndOneFoot_WhenAdd_ThenShouldNotAdd() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            QuantityFactory.createGallon(1).add(QuantityFactory.createFoot(1));
+        }, "Gallon and Foot are not same units");
+
     }
 
 }
