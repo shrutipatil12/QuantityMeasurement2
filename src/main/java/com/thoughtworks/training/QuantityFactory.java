@@ -3,32 +3,44 @@ package com.thoughtworks.training;
 import com.thoughtworks.training.Unit.Length.Foot;
 import com.thoughtworks.training.Unit.Length.Inch;
 import com.thoughtworks.training.Unit.Length.Yard;
+import com.thoughtworks.training.Unit.Temprature.Celsius;
+import com.thoughtworks.training.Unit.Temprature.Fahrenheit;
 import com.thoughtworks.training.Unit.Volume.Gallon;
 import com.thoughtworks.training.Unit.Volume.Liter;
 
 public class QuantityFactory {
-    public static Quantity createFoot(double value) {
+    public static AddableQuantity createFoot(double value) {
 
-        return new Quantity(value, new Foot());
+        return new AddableQuantity(value, new Foot());
     }
 
-    public static Quantity createInch(double value) {
+    public static AddableQuantity createInch(double value) {
 
-        return new Quantity(value, new Inch());
+        return new AddableQuantity(value, new Inch());
     }
 
-    static Quantity createYard(double value) {
-        return new Quantity(value, new Yard());
+    public static AddableQuantity createYard(double value) {
+
+        return new AddableQuantity(value, new Yard());
     }
 
-    static Quantity createGallon(double value)
-    {
+    public static AddableQuantity createGallon(double value) {
 
-        return new Quantity(value, new Gallon());
+        return new AddableQuantity(value, new Gallon());
     }
 
-    public static Quantity createLiter(double value)
-    {
-        return new Quantity(value, new Liter());
+    public static AddableQuantity createLiter(double value) {
+
+        return new AddableQuantity(value, new Liter());
+    }
+
+    public static NonAddableQuantity createCelsius(double value) {
+
+        return new NonAddableQuantity(value, new Celsius());
+    }
+
+    public static NonAddableQuantity createFahrenheit(double value) {
+
+        return new NonAddableQuantity(value, new Fahrenheit());
     }
 }

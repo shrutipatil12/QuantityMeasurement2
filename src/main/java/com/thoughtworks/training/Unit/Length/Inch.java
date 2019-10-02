@@ -10,12 +10,13 @@ public class Inch implements IUnit {
     @Override
     public Quantity conversionToBase(double value) {
         return QuantityFactory.createInch(value * conversionFactor);
-
     }
+
     @Override
     public boolean equals(Object other) {
-        return  other instanceof Inch;
+        return other instanceof Inch;
     }
+
     @Override
     public String toString() {
         return "Inch{" +

@@ -1,6 +1,5 @@
 package com.thoughtworks.training.Unit.Length;
 
-
 import com.thoughtworks.training.Unit.IUnit;
 import com.thoughtworks.training.Quantity;
 import com.thoughtworks.training.QuantityFactory;
@@ -25,7 +24,5 @@ public class Foot implements IUnit {
                 "conversionFactor=" + conversionFactor +
                 '}';
     }
-public  boolean getConversionFactor(){
-        return  false;
-}
+
 }
