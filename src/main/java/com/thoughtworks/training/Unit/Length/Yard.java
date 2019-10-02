@@ -1,18 +1,20 @@
-package com.thoughtworks.training.measurement;
+package com.thoughtworks.training.Unit.Length;
 
-import static com.thoughtworks.training.measurement.Quantity.createInch;
+import com.thoughtworks.training.Unit.IUnit;
+import com.thoughtworks.training.Quantity;
+import com.thoughtworks.training.QuantityFactory;
 
 public class Yard implements IUnit {
     private final int conversionFactor = 36;
 
     @Override
     public Quantity conversionToBase(double value) {
-        return createInch(value * conversionFactor);
+        return QuantityFactory.createInch(value * conversionFactor);
     }
 
     @Override
-    public Unit getType() {
-        return Unit.INCH;
+    public boolean equals(Object other) {
+        return other instanceof Yard;
     }
 
     @Override

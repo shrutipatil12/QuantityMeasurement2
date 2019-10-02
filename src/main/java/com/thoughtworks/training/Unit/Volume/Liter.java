@@ -1,6 +1,8 @@
-package com.thoughtworks.training.measurement;
+package com.thoughtworks.training.Unit.Volume;
 
-import static com.thoughtworks.training.measurement.Quantity.createLiter;
+import com.thoughtworks.training.Unit.IUnit;
+import com.thoughtworks.training.Quantity;
+import com.thoughtworks.training.QuantityFactory;
 
 public class Liter implements IUnit {
     private final int conversionFactor = 1;
@@ -8,20 +10,12 @@ public class Liter implements IUnit {
     @Override
     public Quantity conversionToBase(double value) {
 
-        return createLiter(value * conversionFactor);
-    }
-
-    @Override
-    public Unit getType() {
-        return Unit.LITER;
+        return QuantityFactory.createLiter(value * conversionFactor);
     }
 
     @Override
     public boolean equals(Object other) {
-        if (!(other instanceof Inch)) {
-            return false;
-        }
-        return true;
+        return other instanceof Liter;
     }
 
     @Override

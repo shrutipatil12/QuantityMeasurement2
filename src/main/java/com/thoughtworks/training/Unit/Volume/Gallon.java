@@ -1,19 +1,21 @@
-package com.thoughtworks.training.measurement;
+package com.thoughtworks.training.Unit.Volume;
 
-import static com.thoughtworks.training.measurement.Quantity.createLiter;
+import com.thoughtworks.training.Unit.IUnit;
+import com.thoughtworks.training.Quantity;
+import com.thoughtworks.training.QuantityFactory;
 
 public class Gallon implements IUnit {
     private final double conversionFactor = 3.78;
 
     @Override
     public Quantity conversionToBase(double value) {
-        return createLiter(value * conversionFactor);
+        return QuantityFactory.createLiter(value * conversionFactor);
 
     }
 
     @Override
-    public Unit getType() {
-        return Unit.LITER;
+    public boolean equals(Object other) {
+        return other instanceof Gallon;
     }
 
     @Override
