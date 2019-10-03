@@ -9,8 +9,13 @@ public class Fahrenheit implements IUnit {
     public NonAddableQuantity conversionToBase(double value) {
         return QuantityFactory.createCelsius(((value - 32) * 5.0) / 9.0);
     }
+
     public boolean equals(Object other) {
         return super.equals(other);
     }
 
+    @Override
+    public String toString() {
+        return "Fahrenheit{}";
+    }
 }

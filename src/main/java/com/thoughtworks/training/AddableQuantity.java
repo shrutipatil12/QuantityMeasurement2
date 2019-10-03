@@ -2,7 +2,7 @@ package com.thoughtworks.training;
 
 import com.thoughtworks.training.Unit.IUnit;
 
-public class AddableQuantity extends Quantity {
+public class AddableQuantity extends NonAddableQuantity {
     private final double value;
     private final IUnit iunit;
 
@@ -17,16 +17,16 @@ public class AddableQuantity extends Quantity {
         return super.equals(other);
     }
 
-    public Quantity add(Quantity other) throws IllegalArgumentException {
+    public AddableQuantity add(AddableQuantity other) throws IllegalArgumentException {
 
-        Quantity baseOne = iunit.conversionToBase(value);
-        Quantity baseTwo = other.iunit.conversionToBase(other.value);
+        AddableQuantity baseOne = (AddableQuantity) iunit.conversionToBase(value);
+        AddableQuantity baseTwo = (AddableQuantity) other.iunit.conversionToBase(other.value);
 
         if (!(baseOne.iunit.equals(baseTwo.iunit))) {
             throw new IllegalArgumentException(baseOne.iunit + " and " + baseTwo.iunit + " are not same units");
         }
 
-        return new Quantity(baseOne.value + baseTwo.value, baseOne.iunit);
+        return new AddableQuantity(baseOne.value + baseTwo.value, baseOne.iunit);
     }
 
     @Override

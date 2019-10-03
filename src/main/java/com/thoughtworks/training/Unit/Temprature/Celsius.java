@@ -15,4 +15,9 @@ public class Celsius implements IUnit {
     public boolean equals(Object other) {
         return super.equals(other);
     }
+
+    @Override
+    public String toString() {
+        return "Celsius{}";
+    }
 }

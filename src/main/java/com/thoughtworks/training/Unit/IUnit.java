@@ -1,7 +1,7 @@
 package com.thoughtworks.training.Unit;
 
-import com.thoughtworks.training.Quantity;
+import com.thoughtworks.training.NonAddableQuantity;
 
 public interface IUnit {
-    Quantity conversionToBase(double value);
+    NonAddableQuantity conversionToBase(double value);
 }

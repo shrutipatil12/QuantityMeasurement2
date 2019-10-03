@@ -1,14 +1,14 @@
 package com.thoughtworks.training.Unit.Length;
 
 import com.thoughtworks.training.Unit.IUnit;
-import com.thoughtworks.training.Quantity;
+import com.thoughtworks.training.NonAddableQuantity;
 import com.thoughtworks.training.QuantityFactory;
 
 public class Foot implements IUnit {
     private final int conversionFactor = 12;
 
     @Override
-    public Quantity conversionToBase(double value) {
+    public NonAddableQuantity conversionToBase(double value) {
 
         return QuantityFactory.createInch(value * conversionFactor);
     }

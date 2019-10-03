@@ -11,8 +11,8 @@ public class QuantityTest {
     @Test
     void givenZeroFoot_WhenEquals_ThenShouldBeEqual() {
 
-        Quantity zeroFoot = createFoot(0);
-        Quantity anotherZeroFoot = createFoot(0);
+        AddableQuantity zeroFoot = createFoot(0);
+        AddableQuantity anotherZeroFoot = createFoot(0);
 
         assertEquals(zeroFoot, anotherZeroFoot);
     }
@@ -20,7 +20,7 @@ public class QuantityTest {
     @Test
     void givenZeroFootAndAnotherObject_WhenEquals_ThenShouldNotBeEqual() {
 
-        Quantity zeroFoot = createFoot(0);
+        AddableQuantity zeroFoot = createFoot(0);
 
         assertNotEquals(zeroFoot, new Object());
     }
@@ -28,8 +28,8 @@ public class QuantityTest {
     @Test
     void givenOneFootAndTwoFoot_WhenEquals_ThenShouldNotBeEqual() {
 
-        Quantity oneFoot = createFoot(1);
-        Quantity twoFoot = createFoot(2);
+        AddableQuantity oneFoot = createFoot(1);
+        AddableQuantity twoFoot = createFoot(2);
 
         assertNotEquals(oneFoot, twoFoot);
     }
@@ -37,8 +37,8 @@ public class QuantityTest {
     @Test
     void givenOneFootAndOneFoot_WhenEquals_ThenShouldBeEqual() {
 
-        Quantity oneFoot = createFoot(1.0);
-        Quantity otherFoot = createFoot(1.0);
+        AddableQuantity oneFoot = createFoot(1.0);
+        AddableQuantity otherFoot = createFoot(1.0);
 
         assertEquals(oneFoot, otherFoot);
     }
@@ -46,23 +46,23 @@ public class QuantityTest {
     @Test
     void givenOneFootAndNull_WhenEquals_ThenShouldNotBeEqual() {
 
-        Quantity oneFoot = createFoot(1);
-        Quantity twoFoot = null;
+        NonAddableQuantity oneFoot = createFoot(1);
+        NonAddableQuantity twoFoot = null;
 
         assertNotEquals(oneFoot, twoFoot);
     }
 
     @Test
     void givenZeroInch_WhenCompare_ThenShouldBeEqual() {
-        Quantity zeroInch = createInch(0);
-        Quantity anotherZeroInch = createInch(0);
+        AddableQuantity zeroInch = createInch(0);
+        AddableQuantity anotherZeroInch = createInch(0);
 
         assertEquals(zeroInch, anotherZeroInch);
     }
 
     @Test
     void givenZeroInchAndAnotherObject_WhenEquals_ThenShouldNotBeEqual() {
-        Quantity zeroInch = createInch(0);
+        AddableQuantity zeroInch = createInch(0);
 
         assertNotEquals(zeroInch, new Object());
     }
@@ -70,8 +70,8 @@ public class QuantityTest {
     @Test
     void givenOneInchAndOneInch_WhenEquals_ThenShouldBeEqual() {
 
-        Quantity oneFoot = createFoot(1);
-        Quantity otherFoot = createFoot(1);
+        AddableQuantity oneFoot = createFoot(1);
+        AddableQuantity otherFoot = createFoot(1);
 
         assertEquals(oneFoot, otherFoot);
     }
@@ -79,8 +79,8 @@ public class QuantityTest {
     @Test
     void givenOneInchAndTwoInch_WhenEquals_ThenShouldNotBeEqual() {
 
-        Quantity oneInch = createInch(1);
-        Quantity twoInch = createInch(2);
+        AddableQuantity oneInch = createInch(1);
+        AddableQuantity twoInch = createInch(2);
 
         assertNotEquals(oneInch, twoInch);
     }
@@ -88,72 +88,72 @@ public class QuantityTest {
     @Test
     void givenOneInchAndNull_WhenEquals_ThenShouldNotBeEqual() {
 
-        Quantity oneInch = createInch(1);
-        Quantity twoInch = null;
+        AddableQuantity oneInch = createInch(1);
+        AddableQuantity twoInch = null;
 
         assertNotEquals(oneInch, twoInch);
     }
 
     @Test
     void givenOneInchOneFoot_WhenEquals_ThenShouldNotBeEqual() {
-        Quantity oneInch = createInch(1);
-        Quantity oneFoot = createFoot(1);
+        AddableQuantity oneInch = createInch(1);
+        AddableQuantity oneFoot = createFoot(1);
 
         assertNotEquals(oneFoot, oneInch);
     }
 
     @Test
     void givenZeroInchZeroFoot_WhenEquals_ThenShouldBeEqual() {
-        Quantity zeroInch = createInch(0);
-        Quantity zeroFoot = createFoot(0);
+        AddableQuantity zeroInch = createInch(0);
+        AddableQuantity zeroFoot = createFoot(0);
 
         assertEquals(zeroFoot, zeroInch);
     }
 
     @Test
     void givenTwelveInchOneFoot_WhenEquals_ThenShouldBeEqual() {
-        Quantity twelveInch = createInch(12);
-        Quantity oneFoot = createFoot(1);
+        AddableQuantity twelveInch = createInch(12);
+        AddableQuantity oneFoot = createFoot(1);
 
         assertEquals(oneFoot, twelveInch);
     }
 
     @Test
     void givenTwentyFourInchAndtwoFeet_WhenEquals_ThenShouldBeEqual() {
-        Quantity twentyFourInch = createInch(24);
-        Quantity twoFeet = createFoot(2);
+        AddableQuantity twentyFourInch = createInch(24);
+        AddableQuantity twoFeet = createFoot(2);
 
         assertEquals(twoFeet, twentyFourInch);
     }
 
     @Test
     void givenOneFeetAndTwelveInch_WhenEquals_ThenShouldBeEqual() {
-        Quantity twelveInch = createInch(12);
-        Quantity oneFoot = createFoot(1);
+        AddableQuantity twelveInch = createInch(12);
+        AddableQuantity oneFoot = createFoot(1);
 
         assertEquals(oneFoot, twelveInch);
     }
 
     @Test
     void givenZeroYardAndZeroYard_WhenEquals_ThenShouldBeEqual() {
-        Quantity zeroYard = createYard(0);
-        Quantity anotherZeroYard = createYard(0);
+        AddableQuantity zeroYard = createYard(0);
+        AddableQuantity anotherZeroYard = createYard(0);
 
         assertEquals(zeroYard, anotherZeroYard);
     }
 
     @Test
     void givenOneYardAndOneYard_WhenEquals_ThenShouldBeEqual() {
-        Quantity oneYard = createYard(1);
-        Quantity anotherOneYard = createYard(1);
+        AddableQuantity oneYard = createYard(1);
+        AddableQuantity anotherOneYard = createYard(1);
 
         assertEquals(oneYard, anotherOneYard);
     }
 
     @Test
     void givenOneYardAndThreeFoot_WhenEquals_ThenShouldBeEqual() {
-        Quantity oneYard = createYard(1);
-        Quantity threeFoot = createFoot(3);
+        AddableQuantity oneYard = createYard(1);
+        AddableQuantity threeFoot = createFoot(3);
 
         assertEquals(oneYard, threeFoot);
     }
@@ -161,18 +161,18 @@ public class QuantityTest {
 
     @Test
     void givenTwoInchAndZeroInch_WhenAdd_ThenShouldBeFourInches() {
-        Quantity twoInch = createInch(2.0);
-        Quantity anotherTwoInch = createInch(2.0);
+        AddableQuantity twoInch = createInch(2.0);
+        AddableQuantity anotherTwoInch = createInch(2.0);
 
 
-        assertEquals(createInch(4.0), ((AddableQuantity) twoInch).add(anotherTwoInch));
+        assertEquals(createInch(4.0), ( twoInch).add(anotherTwoInch));
 
     }
 
     @Test
     void givenOneFeetAndTwoInches_WhenAdd_ThenShouldBeFourInches() {
-        Quantity OneFeet = createFoot(1.0);
-        Quantity TwoInches = createInch(2.0);
+        AddableQuantity OneFeet = createFoot(1.0);
+        AddableQuantity TwoInches = createInch(2.0);
 
 
         assertEquals(createInch(14.0), ((AddableQuantity) OneFeet).add(TwoInches));
@@ -181,19 +181,20 @@ public class QuantityTest {
 
     @Test
     void givenTwoInchesAndOneFoot_WhenAdd_ThenShouldBeFourInches() {
-        Quantity twoInches = createInch(2.0);
-        Quantity oneFoot = createFoot(1.0);
+        AddableQuantity twoInches = createInch(2.0);
+        AddableQuantity oneFoot = createFoot(1.0);
 
-        assertEquals(createInch(14.0), ((AddableQuantity) oneFoot).add(twoInches));
+        assertEquals(createInch(14.0), ( oneFoot).add(twoInches));
 
     }
 
     @Test
     void givenOneFootAndOneFoot_WhenAdd_ThenShouldGiveTwoFoot() {
-        Quantity oneFoot = createFoot(1.0);
-        Quantity anotherFoot = createFoot(1.0);
+        AddableQuantity oneFoot = createFoot(1.0);
+        AddableQuantity anotherFoot = createFoot(1.0);
 
-        assertEquals(createFoot(2.0), ((AddableQuantity) oneFoot).add(anotherFoot));
+
+        assertEquals(createFoot(2.0), (oneFoot).add(anotherFoot));
     }
 
     /*
@@ -202,82 +203,83 @@ public class QuantityTest {
      */
     @Test
     void givenOneGallonAndAnotherOneGallon_WhenAdd_ThenShouldBeEqual() {
-        Quantity oneGallon = createGallon(1.0);
-        Quantity anotherOneGallon = createGallon(1.0);
+        AddableQuantity oneGallon = createGallon(1.0);
+        AddableQuantity anotherOneGallon = createGallon(1.0);
+
 
         assertEquals(oneGallon, anotherOneGallon);
     }
 
     @Test
     void givenOneLiterAndAnotherOneLiter_WhenAdd_ThenShouldBeEqual() {
-        Quantity oneLiter = createLiter(1.0);
-        Quantity anotherOneLiter = createLiter(1.0);
+        AddableQuantity oneLiter = createLiter(1.0);
+        AddableQuantity anotherOneLiter = createLiter(1.0);
 
         assertEquals(oneLiter, anotherOneLiter);
     }
 
     @Test
     void givenOneLiterAndOneGallon_WhenAdd_ThenShouldNotEqual() {
-        Quantity oneLiter = createLiter(1.0);
-        Quantity oneGallon = createGallon(1.0);
+        AddableQuantity oneLiter = createLiter(1.0);
+        AddableQuantity oneGallon = createGallon(1.0);
 
         assertNotEquals(oneLiter, oneGallon);
     }
 
     @Test
     void givenOneGallonAndOneLiter_WhenAdd_ThenShouldNotEqual() {
-        Quantity oneGallon = createGallon(1.0);
-        Quantity oneLiter = createLiter(1.0);
+        AddableQuantity oneGallon = createGallon(1.0);
+        AddableQuantity oneLiter = createLiter(1.0);
 
         assertNotEquals(oneGallon, oneLiter);
     }
 
     @Test
     void givenOneGallonAndAnotherOneGallon_WhenAdd_ThenShouldBeReturnOneGallon() {
-        Quantity oneGallon = createGallon(1.0);
-        Quantity anotherOneGallon = createGallon(1.0);
+        AddableQuantity oneGallon = createGallon(1.0);
+        AddableQuantity anotherOneGallon = createGallon(1.0);
 
 
-        assertEquals(createGallon(2.0), ((AddableQuantity) oneGallon).add(anotherOneGallon));
+        assertEquals(createGallon(2.0), ( oneGallon).add(anotherOneGallon));
     }
 
     @Test
     void givenOneLiterAndAnotherOneLiter_WhenAdd_ThenShouldBeReturnOneLiter() {
-        Quantity oneLiter = createLiter(1.0);
-        Quantity anotherOneLiter = createLiter(1.0);
+        AddableQuantity oneLiter = createLiter(1.0);
+        AddableQuantity anotherOneLiter = createLiter(1.0);
 
-        assertEquals(createLiter(2.0), ((AddableQuantity) oneLiter).add(anotherOneLiter));
+        assertEquals(createLiter(2.0), ( oneLiter).add(anotherOneLiter));
 
     }
 
     @Test
     void givenOneLiterAndOneGallon_WhenAdd_ThenShouldBeReturnFourPointSevenEight() {
-        Quantity oneGallon = createGallon(1.0);
-        Quantity oneLiter = createLiter(1.0);
+        AddableQuantity oneGallon = createGallon(1.0);
+        AddableQuantity oneLiter = createLiter(1.0);
 
-        assertEquals(createLiter(4.78), ((AddableQuantity) oneGallon).add(oneLiter));
+        assertEquals(createLiter(4.78), (oneGallon).add(oneLiter));
     }
 
     @Test
     void givenOneInchAndOneLiter_WhenEquals_ThenShouldNotEqual() {
-        Quantity oneInch = createInch(1.0);
-        Quantity oneLiter = createLiter(1.0);
+        AddableQuantity oneInch = createInch(1.0);
+        AddableQuantity oneLiter = createLiter(1.0);
 
         assertNotEquals(oneInch, oneLiter);
     }
 
     @Test
     void givenOneLiterAndOneInch_WhenEquals_ThenShouldNotEqual() {
-        Quantity oneInch = createLiter(1.0);
-        Quantity oneLiter = createInch(1.0);
+        AddableQuantity oneInch = createLiter(1.0);
+        AddableQuantity oneLiter = createInch(1.0);
 
         assertNotEquals(oneLiter, oneInch);
     }
 
     @Test
     void givenOneFeetAndOneGallon_WhenEquals_ThenShouldNotEqual() {
-        Quantity oneFoot = createFoot(1.0);
-        Quantity oneGallon = createGallon(1.0);
+        AddableQuantity oneFoot = createFoot(1.0);
+        AddableQuantity oneGallon = createGallon(1.0);
 
         assertNotEquals(oneFoot, oneGallon);
     }
@@ -300,15 +302,15 @@ public class QuantityTest {
 
     @Test
     void givenTwoFahrenheitAndOneFahrenheit_WhenCheckForEquals_ThenTheyShouldNotBeEqual() {
-        Quantity twoFahrenheit = createFahrenheit(2);
-        Quantity oneFahrenheit = createFahrenheit(1);
+        NonAddableQuantity twoFahrenheit = createFahrenheit(2);
+        NonAddableQuantity oneFahrenheit = createFahrenheit(1);
 
         assertNotEquals(twoFahrenheit, oneFahrenheit);
     }
     @Test
     void givenZeroFahrenheitAndZeroCelsius_WhenCheckForEquals_ThenTheyShouldNotBeEqual() {
-        Quantity zeroFahrenheit = createFahrenheit(0);
-        Quantity zeroCelsius = createCelsius(0);
+        NonAddableQuantity zeroFahrenheit = createFahrenheit(0);
+        NonAddableQuantity zeroCelsius = createCelsius(0);
 
         assertNotEquals(zeroFahrenheit, zeroCelsius);
     }
