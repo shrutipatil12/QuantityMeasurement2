@@ -4,7 +4,7 @@ import com.thoughtworks.training.Unit.IUnit;
 
 public class NonAddableQuantity {
     protected double value;
-    protected final IUnit iunit;
+    protected  IUnit iunit;
 
     public NonAddableQuantity(double value, IUnit iunit) {
         this.value = value;

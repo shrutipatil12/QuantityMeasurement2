@@ -165,7 +165,7 @@ public class QuantityTest {
         AddableQuantity anotherTwoInch = createInch(2.0);
 
 
-        assertEquals(createInch(4.0), ( twoInch).add(anotherTwoInch));
+        assertEquals(createInch(4.0), (twoInch).add(anotherTwoInch));
 
     }
 
@@ -184,7 +184,7 @@ public class QuantityTest {
         AddableQuantity twoInches = createInch(2.0);
         AddableQuantity oneFoot = createFoot(1.0);
 
-        assertEquals(createInch(14.0), ( oneFoot).add(twoInches));
+        assertEquals(createInch(14.0), (oneFoot).add(twoInches));
 
     }
 
@@ -240,7 +240,7 @@ public class QuantityTest {
         AddableQuantity anotherOneGallon = createGallon(1.0);
 
 
-        assertEquals(createGallon(2.0), ( oneGallon).add(anotherOneGallon));
+        assertEquals(createGallon(2.0), (oneGallon).add(anotherOneGallon));
     }
 
     @Test
@@ -248,7 +248,7 @@ public class QuantityTest {
         AddableQuantity oneLiter = createLiter(1.0);
         AddableQuantity anotherOneLiter = createLiter(1.0);
 
-        assertEquals(createLiter(2.0), ( oneLiter).add(anotherOneLiter));
+        assertEquals(createLiter(2.0), (oneLiter).add(anotherOneLiter));
 
     }
 
@@ -307,11 +307,20 @@ public class QuantityTest {
 
         assertNotEquals(twoFahrenheit, oneFahrenheit);
     }
+
     @Test
     void givenZeroFahrenheitAndZeroCelsius_WhenCheckForEquals_ThenTheyShouldNotBeEqual() {
         NonAddableQuantity zeroFahrenheit = createFahrenheit(0);
         NonAddableQuantity zeroCelsius = createCelsius(0);
 
         assertNotEquals(zeroFahrenheit, zeroCelsius);
+    }
+
+    @Test
+    void giventhirtyTwoFahrenheittAndZeroCelscdcius_WhenCheckForEquals_ThenTheyShouldBeEqual() {
+        NonAddableQuantity thirtyTwoFahrenheit = createFahrenheit(32);
+        NonAddableQuantity zeroCelsius = createCelsius(0);
+
+        assertEquals(zeroCelsius, thirtyTwoFahrenheit);
     }
 }

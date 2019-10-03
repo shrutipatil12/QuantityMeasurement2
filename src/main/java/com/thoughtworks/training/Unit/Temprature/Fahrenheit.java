@@ -7,11 +7,11 @@ import com.thoughtworks.training.Unit.IUnit;
 public class Fahrenheit implements IUnit {
     @Override
     public NonAddableQuantity conversionToBase(double value) {
-        return QuantityFactory.createCelsius(((value - 32) * 5.0) / 9.0);
+        return QuantityFactory.createCelsius(((value - 32) * (5.0) / 9.0));
     }
 
     public boolean equals(Object other) {
-        return super.equals(other);
+        return other instanceof IUnit;
     }
 
     @Override

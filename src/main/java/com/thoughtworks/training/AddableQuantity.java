@@ -3,13 +3,10 @@ package com.thoughtworks.training;
 import com.thoughtworks.training.Unit.IUnit;
 
 public class AddableQuantity extends NonAddableQuantity {
-    private final double value;
-    private final IUnit iunit;
 
     public AddableQuantity(double value, IUnit iunit) {
         super(value, iunit);
-        this.value = value;
-        this.iunit = iunit;
+
     }
 
     @Override
